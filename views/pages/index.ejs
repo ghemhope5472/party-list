@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/yeti/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
+  <title>Online Form</title>
+  <style>
+    fieldset.scheduler-border {
+      border: 1px groove #ddd !important;
+      padding: 0 1.4em 1.4em 1.4em !important;
+      margin: 0 0 1.5em 0 !important;
+      -webkit-box-shadow: 0px 0px 0px 0px #000;
+      box-shadow: 0px 0px 0px 0px #000;
+    }
+
+    legend.scheduler-border {
+      width: inherit;
+      /* Or auto */
+      padding: 0 10px;
+      /* To give a bit of padding on the left and right */
+      border-bottom: none;
+    }
+
+    .loader {
+      display: none;
+      height: 130vh;
+      width: 100%;
+      background-color: rgb(255, 255, 255);
+      position: absolute;
+      top: 0;
+    }
+
+    .loader>.row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5rem;
+    }
+
+    .loader-text {
+      font-weight: 100;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container mt-4">
+     <div class="row mb-4">
+      <div class="col-12">
+        <!-- FORM START -->
+        <form id='form'>
+          <!-- NAME -->
+          <div class="form-group row ">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Fullname</label>
+            <div class="col-sm-10">
+              <input id="fullname" type='text' class="form-control" name="fullname">
+            </div>
+          </div>
+          <!-- BIRTHDAY -->
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Birthday</label>
+            <div class="col-sm-10">
+              <input id="birthday" type='date' class="form-control" name="birthday">
+            </div>
+          </div>
+          <!-- VOTER ID No -->
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Voter's ID Number</label>
+            <div class="col-sm-10">
+              <input id="id_number" type='text' class="form-control" name="id_number">
+            </div>
+          </div>
+          <!-- address fieldset -->
+          <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Address</legend>
+            <!-- REGION -->
+            <div class="form-group row mt-2">
+              <label class="col-sm-2 col-form-label">Region</label>
+              <div class="col-sm-10">
+                <select id="region" class="form-control" name="region">
+                  <option value="15">AUTONOMOUS REGION IN MUSLIM MINDANAO (ARMM)</option>
+                  <option value="14">CORDILLERA ADMINISTRATIVE REGION (CAR)</option>
+                  <option value="13">NATIONAL CAPITAL REGION (NCR)</option>
+                  <option value="01">REGION I (ILOCOS REGION)</option>
+                  <option value="02">REGION II (CAGAYAN VALLEY)</option>
+                  <option value="03">REGION III (CENTRAL LUZON)</option>
+                  <option value="04">REGION IV-A (CALABARZON)</option>
+                  <option value="17">REGION IV-B (MIMAROPA)</option>
+                  <option value="09">REGION IX (ZAMBOANGA PENINSULA)</option>
+                  <option value="05">REGION V (BICOL REGION)</option>
+                  <option value="06">REGION VI (WESTERN VISAYAS)</option>
+                  <option value="07">REGION VII (CENTRAL VISAYAS)</option>
+                  <option value="08">REGION VIII (EASTERN VISAYAS)</option>
+                  <option value="10">REGION X (NORTHERN MINDANAO)</option>
+                  <option value="11">REGION XI (DAVAO REGION)</option>
+                  <option value="12">REGION XII (SOCCSKSARGEN)</option>
+                  <option value="16">REGION XIII (Caraga)</option>
+                </select>
+              </div>
+            </div>
+            <!-- PROVINCE -->
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Province</label>
+              <div class="col-sm-10">
+                <select id="province" class="form-control" name="province"></select>
+              </div>
+            </div>
+            <!-- CITY -->
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Municipality</label>
+              <div class="col-sm-10">
+                <select id="city" class="form-control" name="municipality"></select>
+              </div>
+            </div>
+            <!-- BRGY -->
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-2 col-form-label">Barangay</label>
+              <div class="col-sm-10">
+                <select id="barangay" class="form-control" name="barangay"></select>
+              </div>
+            </div>
+          </fieldset>
+          <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 col-form-label"> Photo </label>
+            <input type='file' id="avatar" class="form-control" name="avatar" required/>
+            <br>
+            <img id="blah" src="#" alt="your image" width="200px" />
+          </div>
+          <input type="submit" value="Submit" class="btn btn-success btn-lg" />
+          <div id="status">
+          </div>
+        </form>
+        <!-- FORM END -->
+      </div>
+
+    </div>
+
+    <div class="container loader" id="loader">
+      <div class="row">
+        <h4 class="loader-text"> Please wait...</h4>
+        <img src="https://www.scudamores.com/assets/damsel/assets/img/load.gif" alt="loader" width="300px">
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- script type="text/javascript" src="../../jquery.ph-locations.js"></script -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
+
+
+  <!-- // PH Location script  -->
+  <script type="text/javascript">
+    var my_handlers = {
+      fill_provinces: function () {
+        var region_code = $(this).val();
+        $('#province').ph_locations('fetch_list', [{ "region_code": region_code }]);
+      },
+
+      fill_cities: function () {
+        var province_code = $(this).val();
+        $('#city').ph_locations('fetch_list', [{ "province_code": province_code }]);
+      },
+
+      fill_barangays: function () {
+        var city_code = $(this).val();
+        $('#barangay').ph_locations('fetch_list', [{ "city_code": city_code }]);
+      }
+    };
+
+    $(function () {
+      $('#region').on('change', my_handlers.fill_provinces);
+      $('#province').on('change', my_handlers.fill_cities);
+      $('#city').on('change', my_handlers.fill_barangays);
+      $('#region').ph_locations({ 'location_type': 'regions' });
+      $('#province').ph_locations({ 'location_type': 'provinces' });
+      $('#city').ph_locations({ 'location_type': 'cities' });
+      $('#barangay').ph_locations({ 'location_type': 'barangays' });
+      $('#region').ph_locations('fetch_list');
+    });
+  </script>
+
+  <script>
+    // const $form = $('#myForm')
+
+    // $form.on('submit', submitHandler)
+
+    // function submitHandler(e) {
+    //   e.preventDefault()
+
+    //   var fullname = $('#fullname').val();
+    //   var birthday = $('#birthday').val();
+    //   var id_number = $('#id_number').val();
+    //   var region = $("#region option:selected").text();
+    //   var province = $("#province option:selected").text();
+    //   var city = $("#city option:selected").text();
+    //   var barangay = $("#barangay option:selected").text();
+    //   var image = $("#image").val();
+
+    //   $.ajax({
+    //     url: '/submit',
+    //     data: JSON.stringify({ "image": image, "fullname": fullname, "birthday": birthday, "id_number": id_number, "region": region, "province": province, "city": city, "barangay": barangay }),
+    //     processData: false,
+    //     type: 'POST',
+    //     contentType: 'application/json',
+    //     success: function (data) {
+    //       alert(data);
+    //     }
+    //   });
+    // }
+
+    document.getElementById('form').onsubmit = function (event) {
+      event.preventDefault() // prevent form from posting without JS
+      document.getElementById('loader').style.display = 'block';
+      window.scrollTo(0, 0);
+      var xhttp = new XMLHttpRequest(); // create new AJAX request
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) { // sucess from server
+          window.location.href = 'https://partylist-001.herokuapp.com/success';
+          // document.getElementById("status").innerHTML = 'sent'+this.responseText+ xhttp.status;
+        } else { // errors occured
+          document.getElementById("status").innerHTML = xhttp.status;
+        }
+      }
+      xhttp.open("POST", "upload")
+      var formData = new FormData()
+      formData.append('fullname', $('#fullname').val())
+      formData.append('birthday', $('#birthday').val())
+      formData.append('id_number', $('#id_number').val())
+      formData.append('region', $("#region option:selected").text())
+      formData.append('province', $("#province option:selected").text())
+      formData.append('city', $("#city option:selected").text())
+      formData.append('barangay', $("#barangay option:selected").text())
+      // formData.append('region', $('#region option:selected').text())
+      formData.append('avatar', document.getElementById('avatar').files[0]) // since inputs allow multi files submission, therefore files are in array
+      xhttp.send(formData)
+    }
+  </script>
+
+
+  <!-- preview attached photo -->
+  <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#blah').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#avatar").change(function () {
+      readURL(this);
+    });
+  </script>
+
+</body>
+
+</html>

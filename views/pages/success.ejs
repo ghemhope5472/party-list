@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/yeti/bootstrap.min.css">
+
+    <title>Online Form</title>
+    <style>
+        .row {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+        }
+        .success{
+            font-weight: 100;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+        <div class="row">
+
+            <img src="https://cdn.dribbble.com/users/778626/screenshots/5064153/verify.gif" alt="">
+            <h1 class="success"> Success!</h1>
+
+            <a href="https://partylist-001.herokuapp.com" class="btn btn-success btn-lg mt-4"> Back </a>
+            
+        </div>
+    </div>
+
+
+<!-- <script>
+$number = "09286320010";
+$message = "Hello";
+$apicode = "TR-RALPH089588_KGB55";
+$passwd = ')}34n5x$c2';
+
+itexmo($number,$message,$apicode,$passwd);
+function itexmo($number,$message,$apicode,$passwd){
+
+    $url = 'https://www.itexmo.com/php_api/api.php';
+    $itexmo = array('1' => $number, '2' => $message, '3' => $apicode, 'passwd' => $passwd);
+    $param = array(
+        'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($itexmo),
+        ),
+    );
+    $context  = stream_context_create($param);
+    return file_get_contents($url, false, $context);
+}
+
+</script> -->
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+</body>
+
+</html>

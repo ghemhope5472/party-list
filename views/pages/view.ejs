@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/yeti/bootstrap.min.css">
+
+    <title>Online Form</title>
+    <style>
+        .row {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+        }
+        .success{
+            font-weight: 100;
+        }
+        .user-container{
+            display: flex;
+            border: 1px solid gray;
+            padding: 1rem;
+            
+        }
+        li{
+            list-style-type: none;
+        }
+        span{
+            display: inline-block;
+            width: 90px;
+        }
+        @media screen and ( max-width: 600px){
+                .user-container{
+                    flex-direction: column;
+                    align-items: center;
+                    border: 1px solid gray;
+                    padding: 10px;
+                    margin: 10px;
+                }
+                ul{
+                    margin: 0;
+                    padding: 10px;
+                }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+        <div class="row">
+
+            <%  data.forEach( function(data) { %>
+            <div class="col-12 user-container mt-4">
+              <img src="<%= data.photo  %>" alt="image" width="150px">  
+              <ul>
+                  <li>
+                     <span> Name:  </span>  <%= data.fullname %>
+                  </li>
+                  <li>
+                    <span> Birthday:  </span>  <%= data.birthday %>
+                  </li>
+                  <li>
+                    <span> Voters ID:  </span> <%= data.id_number %>
+                  </li>
+                  <li>
+                    <span> Region:  </span> <%= data.region %>
+                  </li>
+                  <li>
+                    <span> Province:  </span>  <%= data.province %>
+                  </li>
+                  <li>
+                    <span> Municipality:  </span> <%= data.city %>
+                  </li>
+                  <li>
+                    <span> Barangay:  </span>  <%= data.barangay %>
+                  </li>
+              </ul>
+                
+            </div>
+            <%  }) %>  
+
+
+          
+          
+            
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.2/viewer.min.js"></script>
+   
+</body>
+
+</html>
